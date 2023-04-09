@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('../img/pattern.jpg');
+  background-size: 500px;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Noto Sans TC', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.center {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.center .header {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  padding: 10px 20px;
+  background: #34d8eb;
+  border-bottom: 1px solid #f2f4f7;
+  text-align: center;
+}
+.center form {
+  background: white;
+  padding: 40px 30px;
+  border: 1px solid #f5f8fa;
+}
+
+.inputGroup {
+  position: relative;
+}
+
+form input {
+  height: 40px;
+  display: block;
+  padding: 0 8px;
+  border-radius: 5px;
+  border: 1px solid silver;
+  font-size: 18px;
+  outline: none;
+  font-family: inherit;
+  margin-bottom: 20px;
+}
+
+form i {
+  position: absolute;
+  top: 12px;
+  right: 11px;
+  font-size: 20px;
+  color: grey;
+  cursor: pointer;
+}
+
+form .btn {
+  width: 130px;
+  height: 45px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #34d8eb;
+  border: none;
+  font-family: inherit;
+  width: 100%;
+}
+
+form .btn:hover {
+  background: #2890e6;
+  transition: 0.5s;
+}
+form a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #34d8eb;
+}
