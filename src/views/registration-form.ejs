@@ -3,56 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
     <script
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
     ></script>
+
     <link href="css/registration_from.css" rel="stylesheet" type="text/css" />
-    <title>Sign in & Sign up Form</title>
+    <title>Sign up</title>
   </head>
   <body>
     <div class="container">
-      <div class="forms-container">
-        <div class="signin-signup">
-          <form method="post" action="register">
-            <h2 class="title">Sign up</h2>
-            <p><%=(typeof alertMsg!='undefined')? alertMsg:''%></p>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input
-                type="text"
-                placeholder="Name"
-                name="first_name"
-                required
-              />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input
-                type="email"
-                placeholder="Email"
-                name="email_address"
-                required
-              />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" name="password" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input
-                type="password"
-                placeholder="ConfirmPassword"
-                name="confirm_password"
-              />
-            </div>
-            <input type="submit" class="btn" value="Sign up" />
-          </form>
-        </div>
+      <div class="form-container">
+        <form method="post" action="register" class="details-form">
+          <h2 class="title">Sign up</h2>
+          <p class="error"><%=(typeof alertMsg!='undefined')? alertMsg:''%></p>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Name" name="first_name" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input
+              type="email"
+              placeholder="Email"
+              name="email_address"
+              required
+            />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" name="password" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              name="confirm_password"
+            />
+          </div>
+          <input type="submit" class="btn" value="Sign up" />
+          <div class="login-link">
+            <span>Already have an account?</span>
+            <a href="/login">Login</a>
+          </div>
+        </form>
       </div>
 
-      <div class="panels-container">
+      <!-- <div class="panels-container">
         <div class="panel left-panel">
           <div class="content">
             <h3>One of us?</h3>
@@ -63,7 +69,7 @@
           </div>
           <img src="img/home_page.png" class="image" alt="" />
         </div>
-      </div>
+      </div> -->
     </div>
 
     <script></script>
