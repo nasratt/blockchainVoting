@@ -131,7 +131,7 @@ router.post('/otpverify', (req, res) => {
     });
   } else {
     res.render('voter-registration.ejs', {
-      alertMsg: 'Session Expired! , You have entered wronge OTP '
+      alertMsg: 'Session Expired! , You have entered wrong OTP '
     });
   }
 });
