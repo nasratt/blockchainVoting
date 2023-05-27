@@ -220,6 +220,8 @@ App = {
         if (state == 2) {
           $('#not').hide();
           contestInstance.contestantsCount().then(function (contestantsCount) {
+            const elecNames = [];
+            const elecCounts = [];
             for (var i = 1; i <= contestantsCount; i++) {
               contestInstance.contestants(i).then(function (contestant) {
                 var id = contestant[0];
@@ -228,6 +230,10 @@ App = {
                 var fetchedParty = contestant[3];
                 var fetchedAge = contestant[4];
                 var fetchedQualification = contestant[5];
+
+                // electionResult.push({ name, voteCount: voteCount.c[0] });
+                elecNames.push(name);
+                elecCounts.push(voteCount.c[0]);
 
                 var resultTemplate =
                   '<tr><th>' +
@@ -246,6 +252,38 @@ App = {
                 result.append(resultTemplate);
               });
             }
+            // $(document).ready(function () {
+            //   let chartStatus = Chart.getChart('chartjs'); // <canvas> id
+            //   if (chartStatus != undefined) {
+            //     chartStatus.destroy();
+            //   }
+            //   const ctx = document.getElementById('chartjs');
+
+            //   const chart = new Chart(ctx, {
+            //     type: 'bar',
+            //     data: {
+            //       // labels: electionResult.map((res) => res.name),
+            //       labels: elecNames,
+            //       datasets: [
+            //         {
+            //           label: 'Number of Votes',
+            //           // data: electionResult.map((res) => res.voteCount),
+            //           data: elecCounts,
+            //           borderWidth: 1
+            //         }
+            //       ]
+            //     },
+            //     options: {
+            //       scales: {
+            //         y: {
+            //           beginAtZero: true
+            //         }
+            //       }
+            //     }
+            //   });
+
+            //   console.log(chart);
+            // });
           });
         } else {
           $('#renderTable').hide();

@@ -1,3 +1,4 @@
+var bcrypt = require('bcryptjs');
 var express = require('express');
 var router = express.Router();
 var db = require('../database');
@@ -13,7 +14,8 @@ router.get('/register', function (req, res, next) {
 });
 
 // to store user input detail on post request
-router.post('/register', function (req, res, next) {
+router.post('/register', async function (req, res, next) {
+  const hash = await bcrypt.hash(req.body.password, 8);
   inputData = {
     first_name: req.body.first_name,
     //last_name: req.body.last_name,
@@ -22,6 +24,11 @@ router.post('/register', function (req, res, next) {
     password: req.body.password,
     confirm_password: req.body.confirm_password
   };
+
+  if (inputData.password == inputData.confirm_password) {
+    inputData.password = hash;
+    inputData.confirm_password = hash;
+  }
 
   // check unique email address
 
@@ -36,7 +43,6 @@ router.post('/register', function (req, res, next) {
       delete inputData.confirm_password;
       // save users data into database
       var sql = 'INSERT INTO registration SET ?';
-      console.log(sql);
       db.query(sql, inputData, function (err, data) {
         if (err) throw err;
       });
