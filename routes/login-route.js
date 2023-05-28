@@ -24,30 +24,6 @@ router.post('/login', async function (req, res) {
   req.session.loggedinUser = true;
   req.session.emailAddress = emailAddress;
   res.redirect('/userInfo');
-
-  //   var sql = 'SELECT * FROM registration WHERE email_address =? AND password =?';
-  // var sql = 'SELECT * FROM registration WHERE email_address =?';
-  // db.query(sql, [emailAddress], function (err, data, fields) {
-  //   if (err) throw err;
-  //   if (data.length > 0) {
-  //     bcrypt.compare(password, data[0].password, function (err, doesMatch) {
-  //       if (!doesMatch) {
-  //         res.render('login-form.ejs', {
-  //           alertMsg: 'Your Email Address or password is wrong'
-  //         });
-  //       }
-  //     });
-
-  //     req.session.loggedinUser = true;
-  //     req.session.emailAddress = emailAddress;
-  //     res.redirect('/userInfo');
-  //     // res.redirect('/blockchain');
-  //   } else {
-  //     res.render('login-form.ejs', {
-  //       alertMsg: 'Your Email Address or password is wrong'
-  //     });
-  //   }
-  // });
 });
 
 async function checkCredentials(email, password) {
@@ -65,5 +41,30 @@ async function checkCredentials(email, password) {
     });
   });
 }
+
+// ************* keeping it for reference, part of login route
+//   var sql = 'SELECT * FROM registration WHERE email_address =? AND password =?';
+// var sql = 'SELECT * FROM registration WHERE email_address =?';
+// db.query(sql, [emailAddress], function (err, data, fields) {
+//   if (err) throw err;
+//   if (data.length > 0) {
+//     bcrypt.compare(password, data[0].password, function (err, doesMatch) {
+//       if (!doesMatch) {
+//         res.render('login-form.ejs', {
+//           alertMsg: 'Your Email Address or password is wrong'
+//         });
+//       }
+//     });
+
+//     req.session.loggedinUser = true;
+//     req.session.emailAddress = emailAddress;
+//     res.redirect('/userInfo');
+//     // res.redirect('/blockchain');
+//   } else {
+//     res.render('login-form.ejs', {
+//       alertMsg: 'Your Email Address or password is wrong'
+//     });
+//   }
+// });
 
 module.exports = router;
